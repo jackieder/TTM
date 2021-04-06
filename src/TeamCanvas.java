@@ -1,17 +1,4 @@
-public class TeamCanvas extends AbstractCanvas {
-  @Override
-  public void xButton() {
+public class TeamCanvas extends AbstractCanvas{
 
-  }
-
-  @Override
-  public void goBackButton() {
-
-  }
-
-  @Override
-  public void logOutButton() {
-
-  }
 }
 
