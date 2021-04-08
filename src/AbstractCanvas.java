@@ -1,31 +1,24 @@
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class AbstractCanvas extends JPanel{
   public JPanel panel;
   public JLabel filler;
+  CardLayout layout;
 
   public AbstractCanvas(String text) {
+    this.layout = new CardLayout();
     this.panel = new JPanel(false);
+    this.panel.setLayout(this.layout);
     this.filler = new JLabel(text);
     panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
     panel.add(filler);
 
+
   }
 
-  //Copy paste them later into an individual class
-  public void goBackButton() {
-  }
-
-  public void logOutButton() {
-  }
-
-  public void bulletinButton() {
-  }
-
-  public void teamButton() {
-  }
-
-  public void profileButton() {
+  public JComponent makePanel() {
+    return this.panel;
   }
 
 }

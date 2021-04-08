@@ -8,8 +8,11 @@ import java.awt.event.KeyEvent;
 public class Main {
 
     public static class TabbedPaneDemo extends JPanel {
+
+
         public TabbedPaneDemo() {
             super(new GridLayout(2, 1));
+
             JButton b2;
             JButton b3;
             JTabbedPane tabbedPane = new JTabbedPane();
@@ -34,12 +37,12 @@ public class Main {
             b3.setMnemonic(KeyEvent.VK_M);
             buttonPanel.add(b3);
 
-            add(buttonPanel);
 
             // Profile Panel
-            ProfileCanvas profile = new ProfileCanvas("profile");
+            ProfileCanvas profile = new ProfileCanvas("James S.");
+           JComponent p = profile.makeProfileCanvas();
             // Add panel to tab pane
-            tabbedPane.addTab("Profile", icon, profile,
+            tabbedPane.addTab("Profile", icon, p,
                     "Profile View");
             tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
@@ -56,10 +59,11 @@ public class Main {
             tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
             //Add the tabbed pane to this panel.
+            add(buttonPanel);
             add(tabbedPane);
 
             //The following line enables to use scrolling tabs.
-            tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
+            //tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);
         }
 
         protected JComponent makeTextPanel(String text) {
@@ -95,12 +99,13 @@ public class Main {
         private static void createAndShowGUI() {
             //Create and set up the window.
             JFrame frame = new JFrame("TTM");
-            frame.setPreferredSize(new Dimension(500, 500));
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setPreferredSize(new Dimension(500, 500));
 
             //Add content to the window.
             frame.add(new TabbedPaneDemo(), BorderLayout.CENTER);
 
+            frame.revalidate();
             //Display the window.
             frame.pack();
             frame.setVisible(true);
