@@ -42,6 +42,9 @@ public class Status extends JPanel implements ActionListener {
     this.status = "Available";
     this.setStatus = new JLabel(this.status);
     this.setStatus.setHorizontalAlignment(JLabel.CENTER);
+    Color available = new Color(119, 211, 83);
+    this.setStatus.setBackground(available);
+    this.setStatus.setOpaque(true);
 
     // Create change status button
     this.changeStatus = new JButton("Change Status");
@@ -81,6 +84,7 @@ public class Status extends JPanel implements ActionListener {
     this.available.addActionListener(this);
     this.buttonPanel.add(this.available);
 
+
     this.busy.setVerticalTextPosition(AbstractButton.BOTTOM);
     this.busy.setHorizontalTextPosition(AbstractButton.CENTER);
     this.busy.addActionListener(this);
@@ -97,8 +101,32 @@ public class Status extends JPanel implements ActionListener {
     this.buttonPanel.add(this.outOfOffice);
   }
 
-  public void resetStatus(String text){
+  public void resetStatusAvailable(String text){
     this.setStatus.setText(text);
+    Color available = new Color(119, 211, 83);
+    this.setStatus.setBackground(available);
+    this.setStatus.setOpaque(true);
+  }
+
+  public void resetStatusBusy(String text){
+    this.setStatus.setText(text);
+    Color busy = new Color(255, 186, 92);
+    this.setStatus.setBackground(busy);
+    this.setStatus.setOpaque(true);
+  }
+
+  public void resetStatusAway(String text){
+    this.setStatus.setText(text);
+    Color away = new Color(249, 95, 98);
+    this.setStatus.setBackground(away);
+    this.setStatus.setOpaque(true);
+  }
+
+  public void resetStatusOof(String text){
+    this.setStatus.setText(text);
+    Color oof = new Color(150, 159, 170);
+    this.setStatus.setBackground(oof);
+    this.setStatus.setOpaque(true);
   }
 
   //Placeholder
@@ -111,25 +139,25 @@ public class Status extends JPanel implements ActionListener {
 
     if(action == this.available) {
       this.status = "Available";
-      this.resetStatus(this.status);
+      this.resetStatusAvailable(this.status);
       this.layout.show(this.cards, STATUSPANEL);
     }
 
     if(action == this.busy) {
       this.status = "Busy";
-      this.resetStatus(this.status);
+      this.resetStatusBusy(this.status);
       this.layout.show(this.cards, STATUSPANEL);
     }
 
     if(action == this.away) {
       this.status = "Away";
-      this.resetStatus(this.status);
+      this.resetStatusAway(this.status);
       this.layout.show(this.cards, STATUSPANEL);
     }
 
     if(action == this.outOfOffice) {
       this.status = "Out of Office";
-      this.resetStatus(this.status);
+      this.resetStatusOof(this.status);
       this.layout.show(this.cards, STATUSPANEL);
     }
 
@@ -137,6 +165,10 @@ public class Status extends JPanel implements ActionListener {
 
   public JComponent makeStatus() {
     return this.cards;
+  }
+
+  public String getStatus() {
+    return this.status;
   }
 
 }
