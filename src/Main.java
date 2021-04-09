@@ -19,8 +19,8 @@ public class Main {
             JButton b3;
             JTabbedPane tabbedPane = new JTabbedPane();
 
+
             // To use an image:
-            ImageIcon icon = createImageIcon("images/middle.gif");
 
             // Create button panel for change status button, set layout
             // Need to fix layout so buttons aren't so big
@@ -43,18 +43,24 @@ public class Main {
             // Profile Panel
             ProfileCanvas profile = new ProfileCanvas("James S.");
            JComponent p = profile.makeProfileCanvas();
-           p.setPreferredSize(new Dimension(400, 400));
             // Add panel to tab pane
-            tabbedPane.addTab("Profile", icon, p,
-                    "Profile View");
+            tabbedPane.addTab(null, null, p, "View Profile");
+            JLabel profileTitle = new JLabel("Profile");
+            profileTitle.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
+            profileTitle.setPreferredSize(new Dimension(100, 80));
+            profileTitle.setHorizontalAlignment(JLabel.CENTER);
+            tabbedPane.setTabComponentAt(0, profileTitle);
             tabbedPane.setMnemonicAt(0, KeyEvent.VK_1);
 
             // Teams Pane
             TeamCanvas team = new TeamCanvas(profile);
             JComponent t = team.makePanel();
-            t.setPreferredSize(new Dimension(400, 400));
-            tabbedPane.addTab("Team", icon, t,
-                    "View Team");
+            tabbedPane.addTab(null, null, t, "View Team");
+            JLabel teamTitle = new JLabel("Team");
+            teamTitle.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
+            teamTitle.setPreferredSize(new Dimension(100, 80));
+            teamTitle.setHorizontalAlignment(JLabel.CENTER);
+            tabbedPane.setTabComponentAt(1, teamTitle);
             tabbedPane.setMnemonicAt(1, KeyEvent.VK_2);
             tabbedPane.addChangeListener(new ChangeListener() {
                 @Override
@@ -62,7 +68,6 @@ public class Main {
                     if(tabbedPane.getSelectedIndex() == 1) {
                         TeamCanvas newTeam = new TeamCanvas(profile);
                         JComponent c = newTeam.makePanel();
-                        c.setPreferredSize(new Dimension(400, 400));
                         tabbedPane.setComponentAt(1, c);
 
                     }
@@ -71,8 +76,12 @@ public class Main {
 
             // Bulletin Panel
             JComponent panel3 = makeTextPanel("Bulletin");
-            tabbedPane.addTab("Bulletin", icon, panel3,
-                    "View Team Bulletin Board");
+            tabbedPane.addTab("Bulletin", null, panel3, "View Bulletin");
+            JLabel bulletinTitle = new JLabel("Bulletin");
+            bulletinTitle.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
+            bulletinTitle.setPreferredSize(new Dimension(100, 80));
+            bulletinTitle.setHorizontalAlignment(JLabel.CENTER);
+            tabbedPane.setTabComponentAt(2, bulletinTitle);
             tabbedPane.setMnemonicAt(2, KeyEvent.VK_3);
 
             //Add the tabbed pane to this panel.
@@ -117,12 +126,12 @@ public class Main {
             //Create and set up the window.
             JFrame frame = new JFrame("TTM");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            //frame.setPreferredSize(new Dimension(500, 500));
+            frame.setPreferredSize(new Dimension(500, 500));
 
             //Add content to the window.
-            frame.add(new TabbedPaneDemo(), BorderLayout.CENTER);
+            TabbedPaneDemo tabs = new TabbedPaneDemo();
+            frame.add(tabs, BorderLayout.CENTER);
 
-            frame.revalidate();
             //Display the window.
             frame.pack();
             frame.setVisible(true);
