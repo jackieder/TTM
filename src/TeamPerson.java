@@ -9,11 +9,13 @@ public class TeamPerson extends JComponent {
     JLabel hoursWorked;
     JLabel setStatus;
     String status;
+    String stringName;
 
     public TeamPerson(String name, String hours, String status) {
         this.status = status;
         this.panel = new JPanel(false);
         this.name = new JLabel(name);
+        this.stringName = name;
         this.name.setHorizontalAlignment(JLabel.CENTER);
         String nameFont = this.name.getFont().getFontName();
         this.name.setFont(new Font(nameFont, Font.BOLD, 30));
@@ -40,6 +42,10 @@ public class TeamPerson extends JComponent {
         this.hoursPanel.add(this.hours, BorderLayout.NORTH);
         this.hoursPanel.add(this.hoursWorked, BorderLayout.SOUTH);
         this.panel.add(this.hoursPanel);
+    }
+
+    public String getTeamPersonName() {
+        return this.stringName;
     }
 
     public JComponent makePanel() {
