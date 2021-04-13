@@ -73,10 +73,13 @@ public class Main {
                     }
                 }
             });
+            tabbedPane.setSelectedIndex(1);
 
             // Bulletin Panel
             JComponent panel3 = makeTextPanel("Bulletin");
-            tabbedPane.addTab("Bulletin", null, panel3, "View Bulletin");
+            BulletinCanvas bulletin = new BulletinCanvas("b");
+            JComponent b = bulletin.makeBulletinPanel();
+            tabbedPane.addTab("Bulletin", null, b, "View Bulletin");
             JLabel bulletinTitle = new JLabel("Bulletin");
             bulletinTitle.setFont(new Font("Helvetica Neue", Font.PLAIN, 20));
             bulletinTitle.setPreferredSize(new Dimension(100, 80));
@@ -126,7 +129,7 @@ public class Main {
             //Create and set up the window.
             JFrame frame = new JFrame("TTM");
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setPreferredSize(new Dimension(500, 500));
+            frame.setPreferredSize(new Dimension(650, 500));
 
             //Add content to the window.
             TabbedPaneDemo tabs = new TabbedPaneDemo();

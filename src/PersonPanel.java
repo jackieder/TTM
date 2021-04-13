@@ -13,10 +13,10 @@ public class PersonPanel implements ActionListener {
     JComponent personCard;
     JButton goBack;
 
-    public PersonPanel(CardLayout teamLayout, JPanel peoplePanel, JPanel deck, TeamPerson person) {
-        this.teamLayout = teamLayout;
-        this.peoplePanel = peoplePanel;
-        this.deck = deck;
+    public PersonPanel(TeamCanvas tc, TeamPerson person) {
+        this.teamLayout = tc.getTeamLayout();
+        this.peoplePanel = tc.getPeoplePanel();
+        this.deck = tc.makePanel();
         this.person = person;
     }
 
@@ -31,7 +31,8 @@ public class PersonPanel implements ActionListener {
         this.personButton.addActionListener(this);
 
         this.goBack = new JButton("Go Back");
-        this.personCard.add(this.goBack);this.goBack.setHorizontalTextPosition(AbstractButton.LEFT);
+        this.personCard.add(this.goBack);
+        this.goBack.setHorizontalTextPosition(AbstractButton.LEFT);
         this.goBack.setHorizontalTextPosition(AbstractButton.CENTER);
         this.goBack.addActionListener(this);
 

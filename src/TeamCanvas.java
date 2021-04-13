@@ -79,23 +79,19 @@ public class TeamCanvas extends JComponent implements ActionListener {
     this.peoplePanel.add(this.james.setStatus());
 
     TeamPerson team1 = new TeamPerson("Jake L.","1:20", "Busy");
-    PersonPanel person1 = new PersonPanel(this.teamLayout, this.peoplePanel,
-            this.panel, team1);
+    PersonPanel person1 = new PersonPanel(this, team1);
     person1.addPerson();
 
     TeamPerson team2 = new TeamPerson("John D.","0:00", "Out of Office");
-    PersonPanel person2 = new PersonPanel(this.teamLayout, this.peoplePanel,
-            this.panel, team2);
+    PersonPanel person2 = new PersonPanel(this, team2);
     person2.addPerson();
 
     TeamPerson team3 = new TeamPerson("Jessica R.","4:54", "Away");
-    PersonPanel person3 = new PersonPanel(this.teamLayout, this.peoplePanel,
-            this.panel, team3);
+    PersonPanel person3 = new PersonPanel(this, team3);
     person3.addPerson();
 
     TeamPerson team4 = new TeamPerson("Jill M.","2:39", "Available");
-    PersonPanel person4 = new PersonPanel(this.teamLayout, this.peoplePanel,
-            this.panel, team4);
+    PersonPanel person4 = new PersonPanel(this, team4);
     person4.addPerson();
 
   }
@@ -110,7 +106,7 @@ public class TeamCanvas extends JComponent implements ActionListener {
     // Go back button
     this.goBack= new JButton("Go Back");
     this.selfCard.add(goBack);
-    this.goBack.setHorizontalTextPosition(AbstractButton.LEFT);
+
     this.goBack.setHorizontalTextPosition(AbstractButton.CENTER);
     this.goBack.addActionListener(this);
 
@@ -118,9 +114,18 @@ public class TeamCanvas extends JComponent implements ActionListener {
 
 
 
-  public JComponent makePanel() {
+  public JPanel makePanel() {
     return this.panel;
   }
+
+  public CardLayout getTeamLayout() {
+    return this.teamLayout;
+  }
+
+  public JPanel getPeoplePanel() {
+    return this.peoplePanel;
+  }
+
 
 
   @Override
