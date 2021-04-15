@@ -131,7 +131,7 @@ public class NotePanel implements ActionListener {
     public void denyCard() {
         this.denyCard = new JPanel(new BorderLayout());
         this.denyPanel = new JPanel(new GridLayout(1, 2));
-        JLabel message = new JLabel("Are you sure you want to deny this note?" + "\n"
+        JLabel message = new JLabel("Are you sure you want to deny this note?" + "\n" +
                 "This will delete the note.");
         message.setHorizontalAlignment(JLabel.CENTER);
 

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TTM">
+    <output-path>$PROJECT_DIR$/out/artifacts/TTM</output-path>
+    <root id="archive" name="TTM.jar">
+      <element id="module-output" name="TTM" />
+    </root>
+  </artifact>
+</component>

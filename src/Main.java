@@ -20,26 +20,6 @@ public class Main {
             JTabbedPane tabbedPane = new JTabbedPane();
 
 
-            // To use an image:
-
-            // Create button panel for change status button, set layout
-            // Need to fix layout so buttons aren't so big
-//            JPanel buttonPanel = new JPanel(false);
-//            buttonPanel.setLayout(new FlowLayout());
-//
-//            // Go back button
-//            b2 = new JButton("Go Back");
-//            b2.setHorizontalTextPosition(AbstractButton.LEFT);
-//            b2.setMnemonic(KeyEvent.VK_M);
-//            buttonPanel.add(b2);
-//
-//            // Logout button
-//            b3 = new JButton("Logout");
-//            b3.setHorizontalTextPosition(AbstractButton.RIGHT);
-//            b3.setMnemonic(KeyEvent.VK_M);
-//            buttonPanel.add(b3);
-
-
             // Profile Panel
             ProfileCanvas profile = new ProfileCanvas("James S.");
            JComponent p = profile.makeProfileCanvas();
@@ -121,35 +101,36 @@ public class Main {
             }
         }
 
-        /**
-         * Create the GUI and show it.  For thread safety, this method should be invoked from the event
-         * dispatch thread.
-         */
-        private static void createAndShowGUI() {
-            //Create and set up the window.
-            JFrame frame = new JFrame("TTM");
-            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            frame.setPreferredSize(new Dimension(650, 500));
+    }
 
-            //Add content to the window.
-            TabbedPaneDemo tabs = new TabbedPaneDemo();
-            frame.add(tabs, BorderLayout.CENTER);
+    /**
+     * Create the GUI and show it.  For thread safety, this method should be invoked from the event
+     * dispatch thread.
+     */
+    private static void createAndShowGUI() {
+        //Create and set up the window.
+        JFrame frame = new JFrame("TTM");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(650, 500));
 
-            //Display the window.
-            frame.pack();
-            frame.setVisible(true);
-        }
+        //Add content to the window.
+        TabbedPaneDemo tabs = new TabbedPaneDemo();
+        frame.add(tabs, BorderLayout.CENTER);
 
-        public static void main(String[] args) {
-            //Schedule a job for the event dispatch thread:
-            //creating and showing this application's GUI.
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    //Turn off metal's use of bold fonts
-                    UIManager.put("swing.boldMetal", Boolean.FALSE);
-                    createAndShowGUI();
-                }
-            });
-        }
+        //Display the window.
+        frame.pack();
+        frame.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        //Schedule a job for the event dispatch thread:
+        //creating and showing this application's GUI.
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                //Turn off metal's use of bold fonts
+                UIManager.put("swing.boldMetal", Boolean.FALSE);
+                createAndShowGUI();
+            }
+        });
     }
 }

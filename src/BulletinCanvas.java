@@ -46,6 +46,7 @@ public class BulletinCanvas implements ActionListener {
     teamNotes.setFont(new Font("Helvetica Neue", Font.BOLD, 18));
     this.notesTitle.add(teamNotes);
     this.newNote = new JButton("Create New Note");
+    this.newNote.addActionListener(this);
     this.notesTitle.add(this.newNote);
     this.notesPanel.add(this.notesTitle);
     ColumnNames col2 = new ColumnNames(false);
@@ -62,12 +63,12 @@ public class BulletinCanvas implements ActionListener {
 
   public void addNotes(){
     Note printer = new Note("printer",  "there's no more paper in the printer",
-            "Jack L.",  "4/12/21");
+            "Jack L.",  "04/12/21");
     NotePanel note1 = new NotePanel(printer, this, false);
     this.notesPanel.add(note1.getNotePanel());
 
     Note party = new Note("party",  "let's have a party",
-            "Jack L.",  "4/12/21");
+            "Jack L.",  "04/12/21");
     NotePanel note2 = new NotePanel(party, this, true);
     this.pendingPanel.add(note2.getNotePanel());
   }
@@ -76,6 +77,7 @@ public class BulletinCanvas implements ActionListener {
     return this.panel;
 
   }
+
 
   public CardLayout getLayout(){
     return this.layout;
@@ -95,6 +97,11 @@ public class BulletinCanvas implements ActionListener {
 
   @Override
   public void actionPerformed(ActionEvent e) {
+    Object action = e.getSource();
 
+    if (action == this.newNote) {
+      CreateNote newNote = new CreateNote(this);
+      this.layout.show(this.panel, "newNote");
+    }
   }
 }
