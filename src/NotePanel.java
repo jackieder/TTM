@@ -92,8 +92,12 @@ public class NotePanel implements ActionListener {
     public void makeNoteView() {
         this.noteViewCard = new JPanel(new BorderLayout());
         JLabel noteContent = new JLabel(this.note.getContent());
+        JLabel noteTitle = new JLabel(this.note.getTitle());
+        noteTitle.setFont(new Font("Helvetica Neue", Font.BOLD, 14));
+        noteTitle.setHorizontalAlignment(JLabel.CENTER);
         noteContent.setHorizontalAlignment(JLabel.CENTER);
         this.noteViewCard.add(noteContent, BorderLayout.CENTER);
+        this.noteViewCard.add(noteTitle, BorderLayout.PAGE_START);
         this.goBack = new JButton("Go Back");
         this.goBack.addActionListener(this);
         this.goBack.setHorizontalTextPosition(AbstractButton.CENTER);

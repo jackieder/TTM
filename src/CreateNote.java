@@ -73,9 +73,10 @@ public class CreateNote implements ActionListener {
     }
 
     public void makePostNote(){
-        this.postNote = new JPanel(new GridLayout(2, 1));
+        this.postNote = new JPanel(new BorderLayout());
         JLabel message = new JLabel("Are you sure you want to post this note?");
-        this.postNote.add(message);
+        message.setHorizontalAlignment(JLabel.CENTER);
+        this.postNote.add(message, BorderLayout.CENTER);
 
         this.postYes = new JButton("Post");
         this.postYes.setHorizontalTextPosition(AbstractButton.CENTER);
@@ -88,7 +89,7 @@ public class CreateNote implements ActionListener {
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
         buttonPanel.add(this.postYes);
         buttonPanel.add(this.postGoBack);
-        this.postNote.add(buttonPanel);
+        this.postNote.add(buttonPanel, BorderLayout.PAGE_END);
 
         this.deck.add(this.postNote);
         this.layout.addLayoutComponent(this.postNote, "Post?");
@@ -97,9 +98,10 @@ public class CreateNote implements ActionListener {
     }
 
     public void makeDiscardNote(){
-        this.discardNote = new JPanel(new GridLayout(2, 1));
+        this.discardNote = new JPanel(new BorderLayout());
         JLabel message = new JLabel("Are you sure you want to discard this note?");
-        this.discardNote.add(message);
+        message.setHorizontalAlignment(JLabel.CENTER);
+        this.discardNote.add(message, BorderLayout.CENTER);
 
         this.discardYes = new JButton("Discard");
         this.discardYes.setHorizontalTextPosition(AbstractButton.CENTER);
@@ -112,7 +114,7 @@ public class CreateNote implements ActionListener {
         JPanel buttonPanel = new JPanel(new GridLayout(1, 2));
         buttonPanel.add(this.discardYes);
         buttonPanel.add(this.discardGoBack);
-        this.discardNote.add(buttonPanel);
+        this.discardNote.add(buttonPanel, BorderLayout.PAGE_END);
 
         this.deck.add(this.discardNote);
         this.layout.addLayoutComponent(this.discardNote, "Discard?");
@@ -145,7 +147,7 @@ public class CreateNote implements ActionListener {
         }
 
         if (action == this.postGoBack) {
-            this.layout.show(this.deck, "base panel");
+            this.layout.show(this.deck, "newNote");
         }
 
         if (action == this.discard) {
@@ -154,6 +156,10 @@ public class CreateNote implements ActionListener {
 
         if (action == this.discardYes) {
             this.layout.show(this.deck, "base panel");
+        }
+
+        if (action == this.discardGoBack) {
+            this.layout.show(this.deck, "newNote");
         }
 
     }
