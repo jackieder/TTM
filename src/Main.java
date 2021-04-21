@@ -111,7 +111,7 @@ public class Main {
         //Create and set up the window.
         JFrame frame = new JFrame("TTM");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setPreferredSize(new Dimension(650, 500));
+        frame.setPreferredSize(new Dimension(800, 500));
 
         //Add content to the window.
         TabbedPaneDemo tabs = new TabbedPaneDemo();

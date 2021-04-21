@@ -50,7 +50,7 @@ public class NotePanel implements ActionListener {
         this.approve.setOpaque(true);
         this.approve.setBorderPainted(false);
         this.approve.addActionListener(this);
-        this.deny = new JButton("Deny");
+        this.deny = new JButton("Discard");
         Color red = new Color(249, 95, 98);
         this.deny.setBackground(red);
         this.deny.setOpaque(true);
